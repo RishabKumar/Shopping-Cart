@@ -4,8 +4,9 @@
   </div>
 <div>
   <hr />
+
 <div class='row'>
   <div class='col-xs-12'>
-     <app-recipe-item [recipes]="recipes" (onAddEvent)="onAddPrice($event)"></app-recipe-item>
+     <app-recipe-item (OnRecipeSelectedEvent)="onRecipeSelect($event)" *ngFor="let recipe of recipes;" [recipe]="recipe" (onAddEvent)="onAddPrice($event)"></app-recipe-item>
   </div>
 </div>
