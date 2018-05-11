@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'header',
@@ -8,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
+  @Output()
+  linkSelectedEvent = new EventEmitter<string>();
+
+  onLinkSelected(link:string)
+  {
+    this.linkSelectedEvent.emit(link);
+  }
 
   ngOnInit() {
   }
