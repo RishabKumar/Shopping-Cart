@@ -2,7 +2,12 @@
   <div class='col-md-5'>
     <app-recipe-list (OnRecipeSelectedEvent)="onRecipeSelect($event)"></app-recipe-list>
   </div>
-  <div class='col-md-7' *ngIf="recipe">
-    <app-recipe-detail [recipedetail]="recipe"></app-recipe-detail>
+  <div class='col-md-7'>
+    <app-recipe-detail *ngIf="recipe; else emptyinfo;" [recipedetail]="recipe"></app-recipe-detail>
+    <ng-template #emptyinfo>
+      <p>
+        Please select a recipe!
+      </p>
+    </ng-template>
   </div>
 </div>
